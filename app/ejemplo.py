@@ -1,15 +1,44 @@
-import re
-import requests
-try:
-    resp_error = requests.get('https://www.tu_pagina.com/')
-except requests.exceptions.RequestException as e:  # This is the correct syntax
-    print(e)
 
-resp_404 = requests.get('https://www.gutenberg.org/cache/epub/846552564156/pg84.txt')
-resp_200 = requests.get('https://www.gutenberg.org/cache/epub/84/pg84.txt')
-print(resp_404.status_code)
-print(type(resp_404.status_code))
+"""
+l1 = Libro(url="https://www.gutenberg.org/cache/epub/11/pg11.txt")
+#l2 = Libro(url="https://docs.python.org/es/3/library/re.html") # ERROR: Url no valida
+l3 = Libro(path="Libros/Frankenstein;_or,_the_modern_prometheus.txt") # 
 
-m = re.search(r'(Author:)\s+\w+.+\n', resp_200.text)
-print(m.group(0))
+bbl = Biblioteca()
 
+bbl.agregarLibro(l1)
+
+bbl.agregarLibro(l1)
+
+bbl.agregarLibro(l3)
+
+bbl.buscarCodigo("Matilda")
+
+bbl.mostrarBiblioteca()
+
+del bbl
+"""
+"""
+l1 = Libro(url="https://www.gutenberg.org/cache/epub/11/pg11.txt")
+#l2 = Libro(url="https://docs.python.org/es/3/library/re.html") # ERROR: Url no valida
+l3 = Libro(path="Libros/Frankenstein;_or,_the_modern_prometheus.txt")
+
+bbl = Biblioteca()
+
+bbl.agregarLibro(l1)
+
+#bbl.agregarLibro(l1)
+
+bbl.agregarLibro(l3)
+
+#bbl.buscarCodigo("Matilda")
+
+bbl.mostrarBiblioteca()
+
+usr1= Usuario("Julian","julian@gmail.com",3058128646)
+p1 = Prestamo(bbl,l1.getTitulo(),usr1)
+p1.prestarLibro()
+#p1.prestarLibro()
+p1.devolverLibro()
+#p1.devolverLibro()
+"""
